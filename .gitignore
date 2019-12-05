@@ -1,0 +1,4 @@
+*~
+.swp
+js/*.js
+!js/bundle.js

@@ -4,4 +4,5 @@
 
 
 (defpackage #:lci
-  (:use #:cl))
+  (:use #:cl)
+  (:export #:tokenize))

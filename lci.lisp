@@ -4,3 +4,5 @@
 
 
 (in-package #:lci)
+
+(defun tokenize (x))
