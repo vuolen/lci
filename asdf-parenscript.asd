@@ -6,6 +6,9 @@
 (defclass parenscript-file (cl-source-file)
   ())
 
+(defmethod perform ((o parenscript-compile-op) p)
+  nil)
+
 (defmethod output-files ((o parenscript-compile-op) (c parenscript-file))
   (values (list (make-pathname :defaults (component-pathname c)
 			       :directory (list :relative "js")
@@ -30,9 +33,12 @@
   ((downward-operation :initform 'parenscript-compile-op)))
 
 (defmethod input-files ((o parenscript-bundle-op) (c system))
-  (loop for child in (component-children lci)
-     collect (output-file 'parenscript-compile-op
-			  child)))
+  (remove-if #'null
+	     (map 'list
+		  (lambda (child)
+		    (first (output-files 'parenscript-compile-op
+					 child)))
+		  (component-children c))))
 
 (defmethod output-files ((o parenscript-bundle-op) (c system))
   (values (list "js/bundle.js")
