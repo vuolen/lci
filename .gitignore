@@ -1,4 +1,4 @@
 *~
 .swp
-js/*.js
-!js/bundle.js
+site/js/*.js
+!site/js/bundle.js
