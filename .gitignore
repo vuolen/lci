@@ -2,3 +2,4 @@
 .swp
 site/js/*.js
 !site/js/bundle.js
+test/node_modules
