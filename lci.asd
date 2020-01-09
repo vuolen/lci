@@ -11,9 +11,10 @@
   :serial t
   :defsystem-depends-on (:asdf-parenscript)
   :depends-on (:parenscript)
-  :components ((:parenscript-file "package")
+  :components ((:file "package")
                (:parenscript-file "lci")) 
-  :in-order-to ((test-op (test-op #:lci/tests))))
+  :in-order-to ((test-op (test-op #:lci/tests))
+		(compile-op (parenscript-system-op #:lci))))
 
 (asdf:defsystem #:lci/tests
   :depends-on (:lci :fiveam)
