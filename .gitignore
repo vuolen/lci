@@ -1,3 +1,5 @@
 .cpcache
-/out/
-!/out/main.js
+out
+!out/
+out/*
+!out/main.js
